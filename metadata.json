@@ -1,0 +1,6 @@
+{
+  "name": "Water Suite Investor Hub",
+  "description": "Premium, high-trust showcase of the Water suite of social utility products, designed for global resource accessibility, societal optimization, and strategic investments.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
