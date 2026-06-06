@@ -3,11 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
+    
+    <!-- Premium Naming & SEO -->
+    <title>Water Suite Investor Hub — Offline PWA</title>
+    <meta name="description" content="Premium, offline-capable showcase of the Water suite of social utility products, bipedal humanoid robotics, and decentralized compute mesh." />
+
+    <!-- Standard and iOS Web Icons -->
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    
+    <!-- PWA Settings -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#020617" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Water Suite" />
+    
+    <!-- Speed Optimization: Resource Preconnections -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
-  <body>
+  <body class="bg-[#020617]">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Safe Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('ServiceWorker registered with scope: ', registration.scope);
+            })
+            .catch((err) => {
+              console.warn('ServiceWorker registration failed: ', err);
+            });
+        });
+      }
+    </script>
   </body>
 </html>
 
