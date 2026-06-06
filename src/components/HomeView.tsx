@@ -11,12 +11,14 @@ import {
   Sparkles,
   ChevronRight,
   Calculator,
-  UserCheck
+  UserCheck,
+  Presentation
 } from 'lucide-react';
 import { FOUNDER_BIO, INVESTOR_OPTIONS } from '../data';
+import logoImg from '../assets/images/water_logo_1779663340138.png';
 
 interface HomeViewProps {
-  onNavigate: (tab: 'products' | 'sponsor' | 'contact') => void;
+  onNavigate: (tab: 'products' | 'sponsor' | 'contact' | 'deck') => void;
 }
 
 export default function HomeView({ onNavigate }: HomeViewProps) {
@@ -34,19 +36,37 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
         <div className="absolute top-0 right-0 w-64 h-64 cosmic-orb-purple -mr-20 -mt-20 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-64 h-64 cosmic-orb-cyan -ml-24 -mb-24 pointer-events-none" />
         
-        <div className="relative z-10 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/40 border border-cyan-500/20 text-cyan-400 text-xs font-mono">
-            <Sparkles className="w-3.5 h-3.5 animate-pulse" />
-            GLOBAL PORTFOLIO SEED ROUND ACTIVE
+        <div className="relative z-10 space-y-6">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="space-y-4 flex-1">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/40 border border-cyan-500/20 text-cyan-400 text-xs font-mono">
+                <Sparkles className="w-3.5 h-3.5 animate-pulse" />
+                GLOBAL PORTFOLIO SEED ROUND ACTIVE
+              </div>
+              
+              <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-white leading-tight">
+                Water Suite <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-400 to-emerald-400">Enterprises</span>
+              </h1>
+              
+              <p className="text-slate-300 text-base md:text-lg max-w-2xl leading-relaxed font-light font-sans">
+                An investment-first social technology ecosystem solving global labor, education, accessibility, and celebration friction. Facilitating humanity`s transition to progress — <span className="text-cyan-300 font-medium font-mono">Elevation to Eden</span>.
+              </p>
+            </div>
+
+            <div className="shrink-0 flex justify-center self-center md:self-auto">
+              <div className="relative group">
+                <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-r from-cyan-500 to-indigo-500 blur-lg opacity-40 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-2xl overflow-hidden border border-cyan-500/35 bg-slate-950 shadow-2xl p-1.5 shrink-0 flex items-center justify-center">
+                  <img 
+                    src={logoImg} 
+                    alt="Water Enterprises Fluid Quantum Logo" 
+                    className="w-full h-full object-cover rounded-xl"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
-          
-          <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-white leading-tight">
-            Water Suite <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-400 to-emerald-400">Enterprises</span>
-          </h1>
-          
-          <p className="text-slate-300 text-base md:text-lg max-w-2xl leading-relaxed font-light">
-            An investment-first social technology ecosystem solving global labor, education, accessibility, and celebration friction. Facilitating humanity`s transition to progress — <span className="text-cyan-300 font-medium">Elevation to Eden</span>.
-          </p>
 
           {/* Quick Stats Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-slate-800/60">
@@ -68,21 +88,29 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-4 pt-4">
+          <div className="flex flex-wrap gap-3 pt-4">
             <button 
               id="cta-home-explore"
               onClick={() => onNavigate('products')}
-              className="flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-medium px-6 py-3 rounded-xl transition shadow-lg shadow-cyan-950/50 cursor-pointer"
+              className="flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-medium px-5 py-3 rounded-xl transition shadow-lg shadow-indigo-950/50 cursor-pointer text-xs uppercase tracking-wider font-mono font-bold"
             >
-              Explore 9 Water Products
-              <ArrowRight className="w-4 h-4" />
+              Explore 9 Products
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+            <button 
+              id="cta-home-deck"
+              onClick={() => onNavigate('deck')}
+              className="flex items-center gap-2 border border-cyan-500/30 hover:border-cyan-400 text-cyan-300 px-5 py-3 rounded-xl transition bg-cyan-950/20 hover:bg-cyan-950/40 backdrop-blur cursor-pointer text-xs uppercase tracking-wider font-mono font-bold"
+            >
+              <Presentation className="w-3.5 h-3.5 text-cyan-400" />
+              Interactive Pitch Deck
             </button>
             <button 
               id="cta-home-invest"
               onClick={() => onNavigate('sponsor')}
-              className="flex items-center gap-2 border border-slate-700 hover:border-slate-500 text-slate-200 px-6 py-3 rounded-xl transition bg-slate-900/40 backdrop-blur cursor-pointer"
+              className="flex items-center gap-2 border border-slate-700 hover:border-slate-500 text-slate-300 px-5 py-3 rounded-xl transition bg-slate-900/40 hover:bg-slate-900/70 backdrop-blur cursor-pointer text-xs uppercase tracking-wider font-mono"
             >
-              Direct Contribution Portal
+              Liquid Sponsor Portal
             </button>
           </div>
         </div>

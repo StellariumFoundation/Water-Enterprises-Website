@@ -12,14 +12,17 @@ import {
   Download,
   Search,
   ExternalLink,
-  HeartHandshake
+  HeartHandshake,
+  Presentation
 } from 'lucide-react';
 import { TabType } from './types';
 import HomeView from './components/HomeView';
+import logoImg from './assets/images/water_logo_1779663340138.png';
 import ProductsView from './components/ProductsView';
 import SponsorView from './components/SponsorView';
 import ContactView from './components/ContactView';
 import PledgeView from './components/PledgeView';
+import InvestorDeckView from './components/InvestorDeckView';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabType>('home');
@@ -46,8 +49,13 @@ export default function App() {
             onClick={() => setActiveTab('home')} 
             className="flex items-center gap-2 cursor-pointer group"
           >
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-cyan-400 via-indigo-500 to-purple-600 flex items-center justify-center font-bold text-white text-xs shadow-md shadow-indigo-950/50">
-              W
+            <div className="w-8 h-8 rounded-lg overflow-hidden border border-cyan-500/30 flex items-center justify-center bg-slate-950 shadow-md shadow-cyan-950/50">
+              <img 
+                src={logoImg} 
+                alt="Water Enterprises Logo" 
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
             </div>
             <div>
               <span className="font-bold text-sm tracking-widest text-white block group-hover:text-cyan-400 transition font-mono"> Water Enterprises</span>
@@ -57,6 +65,19 @@ export default function App() {
 
           {/* Inline Action Triggers / Simulation Buttons */}
           <div className="flex items-center gap-3">
+            <button 
+              id="header-slide-deck"
+              onClick={() => setActiveTab('deck')}
+              className={`flex items-center gap-1.5 text-[11px] font-mono px-3 py-1.5 rounded-lg border transition ${
+                activeTab === 'deck'
+                  ? 'bg-cyan-950/60 text-cyan-400 border-cyan-500/30 font-bold'
+                  : 'bg-slate-900/30 border-white/5 text-slate-400 hover:text-white hover:bg-slate-900/60'
+              }`}
+            >
+              <Presentation className="w-3.5 h-3.5 text-cyan-400" />
+              <span>Investor Pitch Deck</span>
+            </button>
+
             <a 
               id="header-repository"
               href="https://github.com/StellariumFoundation"
@@ -85,6 +106,13 @@ export default function App() {
             )}
             {activeTab === 'products' && (
               <ProductsView />
+            )}
+            {activeTab === 'deck' && (
+              <InvestorDeckView 
+                onClose={() => setActiveTab('home')}
+                onNavigateToSponsor={() => setActiveTab('sponsor')}
+                onNavigateToContact={() => setActiveTab('contact')}
+              />
             )}
             {activeTab === 'pledge' && (
               <PledgeView />
@@ -161,6 +189,21 @@ export default function App() {
               )}
               <Layers className="w-5 h-5 mb-1" />
               <span className="text-[9px] uppercase tracking-wider font-mono">Suite</span>
+            </button>
+
+            {/* Tab 3: Investor Slide Deck */}
+            <button 
+              id="nav-tab-deck"
+              onClick={() => setActiveTab('deck')}
+              className={`flex flex-col items-center justify-center flex-1 h-full py-1 text-center transition cursor-pointer min-w-14 relative ${
+                activeTab === 'deck' ? 'text-cyan-400' : 'text-slate-500 hover:text-slate-400'
+              }`}
+            >
+              {activeTab === 'deck' && (
+                <div className="absolute top-0 w-6 h-1 rounded-full bg-cyan-400 -mt-1 shadow-lg shadow-cyan-400/50" />
+              )}
+              <Presentation className="w-5 h-5 mb-1" />
+              <span className="text-[9px] uppercase tracking-wider font-mono">Pitch Deck</span>
             </button>
 
 

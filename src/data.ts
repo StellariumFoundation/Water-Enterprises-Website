@@ -250,13 +250,42 @@ export const FOUNDER_BIO = {
 
 export const INVESTOR_OPTIONS = {
   seedRoundGoal: '$7,000,000',
-  currentRaised: '$4,640,000',
-  investorsCount: 42,
+  currentRaised: '$2,000,000',
+  investorsCount: 12,
   minCommitment: '$25,000',
+  estimatedRoiMultiplier: '5.2x - 12.8x (Projected 3-Year Exit Multiple)',
+  paybackDuration: '18 - 24 Months (Targeted Cash-on-Cash Payback)',
+  averageSponsorApr: '18.5% (Preferred Liquid Sponsorship Return)',
   allocations: [
-    { name: 'Core Product R&D', percentage: 45, desc: 'Architecting routing, VR low-latency robotics engines, and RAG architectures.' },
-    { name: 'Strategic Outreach & Activism', percentage: 30, desc: 'Direct emails, phone calls, and presentations lobbying policies like the Subsidized Jobs Act globally.' },
-    { name: 'Secure Operations & Hubs', percentage: 20, desc: 'Establishing the Stellarium Office & Mansion physical accelerator, equipped with top security shielding.' },
-    { name: 'Legal, Compliance & Patents', percentage: 5, desc: 'Ensuring global regulatory adherence and intellectual asset governance.' }
+    { 
+      name: 'Core Product R&D', 
+      percentage: 45, 
+      desc: 'Architecting dynamic routing protocols, low-latency VR humanoid teleoperation, high-entropy RAG models, and compiling cross-platform binary suites to React Native & Flutter.' 
+    },
+    { 
+      name: 'Strategic Outreach & Advocacy', 
+      percentage: 30, 
+      desc: 'Executing direct outreach campaigns, sponsoring think-tank initiatives, and key stakeholder lobbying to institutionalize policies like the Subsidized Jobs Act globally.' 
+    },
+    { 
+      name: 'Secure Operations & Hubs', 
+      percentage: 20, 
+      desc: 'Securing physical assets, including the high-shielding Stellarium HQ and Mansion, and deploying independent containerized private server racks & edge GPU seed networks.' 
+    },
+    { 
+      name: 'Legal, Compliance & Patents', 
+      percentage: 5, 
+      desc: 'Filing sovereign software patents, structuring secure legal trusts, auditing global escrow structures, and securing private ledger registrations.' 
+    }
+  ],
+  returnChannels: [
+    { title: 'Sponsor Yield Pooling', desc: 'Sponsors receive an instant 40% immediate referral fee on new client registrations, plus a 10% direct revenue share on local event/connection transaction pools.' },
+    { title: 'GPU Mesh Seeding Payouts', desc: 'Participating resource contributors to the Water AI Fluid peer-to-peer compute platform receive target APRs of up to 32% settled directly via the physical estate ledger.' },
+    { title: 'Preferred SaaS Dividends', desc: 'Seed investors hold Senior Preferred Shares, which entitle them to a cumulative 8% annual dividend yield, paid quarterly from Water Company SaaS license revenues.' }
+  ],
+  useOfFundsPhases: [
+    { phase: 'Phase 1: Tactical Launch (Months 1-6)', desc: 'Deploy stable decentralized router architectures, release public Alpha modules of Water Company, and initiate secured escrow accounts.' },
+    { phase: 'Phase 2: Scale and Procure (Months 7-18)', desc: 'Acquire dedicated operational mansion nodes, launch the high-latency VR robotic teleoperation pilot, and start institutional school licensing with Water Classroom.' },
+    { phase: 'Phase 3: Sovereign Integration (Months 19-36)', desc: 'Lobby for municipal adoption of Water Gov, activate the global decentralized compute cluster network, and trigger preferred exit multiple events.' }
   ]
 };

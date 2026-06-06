@@ -1,4 +1,4 @@
-export type TabType = 'home' | 'products' | 'pledge' | 'sponsor' | 'contact';
+export type TabType = 'home' | 'products' | 'pledge' | 'sponsor' | 'contact' | 'deck';
 
 export interface WaterProduct {
   id: string;
